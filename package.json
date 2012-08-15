@@ -1,0 +1,30 @@
+{
+  "name": "tddbcyokohama02",
+  "version": "0.0.1",
+  "description": "TDDBootCamp in Yokohama Sep,1,2012",
+  "homepage": [
+    "http://goo.gl/xYZg5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freddiefujiwara/tddbcyokohama02.git"
+  },
+  "keywords": [
+    "testing",
+    "tdd"
+  ],
+  "author": {
+    "name": "Fumikazu Fujiwara",
+    "email": "github@ze.gs"
+  },
+  "contributors": [
+    {
+    }
+  ],
+  "licenses": [
+    "MIT"
+  ],
+  "dependencies": {
+    "jasmine-node":">=1.0.26"
+  }
+}
