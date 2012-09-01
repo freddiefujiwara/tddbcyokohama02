@@ -25,6 +25,7 @@
     "MIT"
   ],
   "dependencies": {
-    "jasmine-node":">=1.0.26"
+    "jasmine-node":"*",
+    "coffee-script":"*"
   }
 }
