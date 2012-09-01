@@ -1,7 +1,9 @@
 exports.createVendingMachine = function() {
-    return {
-        coins : [],
+    var money = [];
+    var salseAmount = 0;
+    var allowedMoneys = [10,50,100,500,1000];
 
+    return {
         drinks : {
             name : "コーラ",
             price : 120,
@@ -10,29 +12,42 @@ exports.createVendingMachine = function() {
 
         totalAmount : function(){
           var sum = 0;
-          this.coins.forEach(function(coin){
+          money.forEach(function(coin){
               sum += coin;
           });
           return sum;
         },
 
-        insert : function (coin) {
-            var allowedCoins =[10,50,100,500,1000];
-
-            if(allowedCoins.indexOf(coin) != -1){
-                this.coins.push(coin);
-            } else {
-                return coin;
+        insert : function (localMoney) {
+            if(allowedMoneys.indexOf(localMoney) == -1){
+                return localMoney;
             }
-
+            money.push(localMoney);
+            return null;
         },
+
         refund : function(){
-            var currentCoins = this.coins;
-            this.coins = [];
+            var currentCoins = money;
+            money = [];
             return currentCoins;
         },
         checkDrinks : function() {
             return this.drinks;
+        },
+
+        salesAmount : function() {
+            return salseAmount;
+        },
+
+        purchasable : function () {
+            return this.totalAmount() >= this.drinks.price && this.drinks.num > 0;
+        },
+        purchase : function () {
+            if(!this.purchasable()){
+                return;
+            }
+            this.drinks.num--;
+            salseAmount += this.drinks.price;
         }
     };
 };
